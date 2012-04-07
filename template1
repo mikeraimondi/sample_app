@@ -1,0 +1,7 @@
+create role myapp with createdb login password 'myapp';  // 'login' is optional if you plan to use psql
+// with newer versions of Rails, 'rake db:create:all' will create all the databases listed in config/database.yml
+select * from pg_user;    // verify user created
+select * from pg_shadow;  // sysid listed here
+create database myapp_development owner myapp;
+create database myapp_test owner myapp; 
+create database myapp_production owner myapp;
